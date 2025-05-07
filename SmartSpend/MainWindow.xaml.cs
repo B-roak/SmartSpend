@@ -14,9 +14,6 @@ using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.WPF;
 
 
-
-
-
 namespace SmartSpend
 {
     /// <summary>
@@ -24,7 +21,10 @@ namespace SmartSpend
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        private void CloseClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -32,10 +32,14 @@ namespace SmartSpend
 
             PieSeries = new List<ISeries>
             {
-                new PieSeries<double> { Values = new[] { 40.0 }, Name = "Apples", InnerRadius = 50},
-                new PieSeries<double> { Values = new[] { 30.0 }, Name = "Bananas",InnerRadius = 50 },
-                new PieSeries<double> { Values = new[] { 20.0 }, Name = "Cherries",InnerRadius = 50 },
-                new PieSeries<double> { Values = new[] { 10.0 }, Name = "Grapes" , InnerRadius = 50}
+                new PieSeries<double> { Values = new[] { 40.0 }, Name = "Fixed Charges", InnerRadius = 50},
+                new PieSeries<double> { Values = new[] { 30.0 }, Name = "Daily Life",InnerRadius = 50 },
+                new PieSeries<double> { Values = new[] { 20.0 }, Name = "Transport",InnerRadius = 50 },
+                new PieSeries<double> { Values = new[] { 10.0 }, Name = "Entertainment" , InnerRadius = 50},
+                new PieSeries<double> { Values = new[] { 40.0 }, Name = "Savings", InnerRadius = 50},
+                new PieSeries<double> { Values = new[] { 40.0 }, Name = "Unexpected Expenses", InnerRadius = 50}
+
+
             };
         }
 
