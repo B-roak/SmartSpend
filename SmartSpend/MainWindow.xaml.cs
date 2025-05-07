@@ -21,10 +21,7 @@ namespace SmartSpend
     /// </summary>
     public partial class MainWindow : Window
     {
-        private void CloseClick(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+       
         public MainWindow()
         {
             InitializeComponent();
@@ -44,5 +41,13 @@ namespace SmartSpend
         }
 
         public IEnumerable<ISeries> PieSeries { get; set; }
+
+        private void CloseClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+       
+
     }
 }

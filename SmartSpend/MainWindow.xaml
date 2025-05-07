@@ -13,6 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="300"/>
+            <RowDefinition Height="80" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -21,7 +22,9 @@
                 BorderBrush="Transparent" Background="Transparent"
                 Foreground="Red" FontSize="25" FontWeight="Bold" />
         <lvc:PieChart Grid.Row="1" Series="{Binding PieSeries}" LegendPosition="Right" />
-        <ListBox Grid.Row="2" ItemsSource="{Binding ListItems}">
+        <Button Content="Add expenses" Grid.Row="2" Width="200" Height="60"
+                Background="GreenYellow"/>
+        <ListBox Grid.Row="3" ItemsSource="{Binding ListItems}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
