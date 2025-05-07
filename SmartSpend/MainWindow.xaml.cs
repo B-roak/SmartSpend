@@ -8,6 +8,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.Generic;
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.WPF;
+
+
+
+
 
 namespace SmartSpend
 {
@@ -16,9 +24,21 @@ namespace SmartSpend
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
+
+            PieSeries = new List<ISeries>
+            {
+                new PieSeries<double> { Values = new[] { 40.0 }, Name = "Apples", InnerRadius = 50},
+                new PieSeries<double> { Values = new[] { 30.0 }, Name = "Bananas",InnerRadius = 50 },
+                new PieSeries<double> { Values = new[] { 20.0 }, Name = "Cherries",InnerRadius = 50 },
+                new PieSeries<double> { Values = new[] { 10.0 }, Name = "Grapes" , InnerRadius = 50}
+            };
         }
+
+        public IEnumerable<ISeries> PieSeries { get; set; }
     }
 }
