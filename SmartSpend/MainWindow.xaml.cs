@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.WPF;
+using Microsoft.Win32;
 
 
 namespace SmartSpend
@@ -42,12 +43,17 @@ namespace SmartSpend
 
         public IEnumerable<ISeries> PieSeries { get; set; }
 
+        //Events
         private void CloseClick(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-       
+        private void AddExpense(object sender,RoutedEventArgs e)
+        {
 
+        }
+
+        
     }
 }
