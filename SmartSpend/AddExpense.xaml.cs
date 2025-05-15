@@ -40,18 +40,21 @@ namespace SmartSpend
 
         private void SubcategoriesBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
         private void CategoriesBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            SubcategoriesBox.Items.Clear();
+            SubcategoriesBox.SelectedItem = null;
+
             string selectedText = (string)CategoriesBox.SelectedItem;
             Categories selectedcategories = (Categories)Enum.Parse(typeof(Categories), selectedText);
             SubCategories = CategoriesDictionary.GetSubcatNames(selectedcategories);
-            foreach (string category in SubCategories) 
-            {
-                SubcategoriesBox.Items.Add(category);
-            }
+            foreach (string category in SubCategories)
+                {
+                    SubcategoriesBox.Items.Add(category);
+                }
         }
     }
 }
