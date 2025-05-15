@@ -69,6 +69,8 @@ namespace SmartSpend
 
             Expense expense = new Expense(category, subcategory, value);
             DataManager.AddNewExpense(expense);
+            ((MainWindow)Application.Current.MainWindow).UpdateExpensesChart();
+            ((MainWindow)Application.Current.MainWindow).UpdateExpensesList();
 
         }
     }

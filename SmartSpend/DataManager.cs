@@ -9,23 +9,15 @@ namespace SmartSpend
 {
     static class DataManager 
     {
-        public static Expense GetExpenseById(int id) 
-        {
-            return new Expense(Categories.DailyLife,SubCategories.Rent,600);
-        }
-
+        private static List<Expense> ExpenseList = new List<Expense>();
+    
         public static void AddNewExpense(Expense expense)
         {
-            Debug.WriteLine($"Added new expense {expense}");
+            ExpenseList.Add(expense);
         }
         public static List<Expense> GetAllExpenses()
         {
-            return new List<Expense>() 
-            {
-                new Expense(Categories.DailyLife,SubCategories.Books,600),
-                new Expense(Categories.DailyLife,SubCategories.Rent,5000)
-        };
+            return ExpenseList; 
         }
-      
     }
 }

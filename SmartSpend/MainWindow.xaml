@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
         mc:Ignorable="d"
-        Height="1000" Width="800" 
+        Height="1000" Width="800" WindowStartupLocation="CenterScreen"
         WindowStyle ="None"> 
 
 
