@@ -38,3 +38,6 @@ C:\Users\szymo\OneDrive\Pulpit\SmartSpend\SmartSpend\obj\Debug\net8.0-windows7.0
 C:\Users\szymo\OneDrive\Pulpit\SmartSpend\SmartSpend\obj\Debug\net8.0-windows7.0\SmartSpend.pdb
 C:\Users\szymo\OneDrive\Pulpit\SmartSpend\SmartSpend\obj\Debug\net8.0-windows7.0\SmartSpend.genruntimeconfig.cache
 C:\Users\szymo\OneDrive\Pulpit\SmartSpend\SmartSpend\obj\Debug\net8.0-windows7.0\ref\SmartSpend.dll
+C:\Users\szymo\OneDrive\Pulpit\SmartSpend\SmartSpend\obj\Debug\net8.0-windows7.0\Window1.g.cs
+C:\Users\szymo\OneDrive\Pulpit\SmartSpend\SmartSpend\obj\Debug\net8.0-windows7.0\SmartSpend_MarkupCompile.lref
+C:\Users\szymo\OneDrive\Pulpit\SmartSpend\SmartSpend\obj\Debug\net8.0-windows7.0\Window1.baml

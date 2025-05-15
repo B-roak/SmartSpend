@@ -51,7 +51,9 @@ namespace SmartSpend
 
         private void AddExpense(object sender,RoutedEventArgs e)
         {
-
+            Window1 window1 = new Window1();
+            window1.Owner =this;
+            window1.ShowDialog();
         }
 
         

@@ -24,6 +24,7 @@
         <lvc:PieChart Grid.Row="1" Series="{Binding PieSeries}" LegendPosition="Right" />
         <Button Content="Add expenses" Grid.Row="2" Width="200" Height="60"
                 Background="GreenYellow" Click="AddExpense"/>
+        
         <ListBox Grid.Row="3" ItemsSource="{Binding ListItems}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
