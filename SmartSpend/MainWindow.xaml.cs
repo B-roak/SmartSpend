@@ -13,6 +13,7 @@ using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.WPF;
 using Microsoft.Win32;
+using System.Security.Cryptography;
 
 
 namespace SmartSpend
@@ -22,26 +23,17 @@ namespace SmartSpend
     /// </summary>
     public partial class MainWindow : Window
     {
-       
+        private const float InnerRadius = 50;
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
 
-            PieSeries = new List<ISeries>
-            {
-                new PieSeries<double> { Values = new[] { 40.0 }, Name = "Fixed Charges", InnerRadius = 50},
-                new PieSeries<double> { Values = new[] { 30.0 }, Name = "Daily Life",InnerRadius = 50 },
-                new PieSeries<double> { Values = new[] { 20.0 }, Name = "Transport",InnerRadius = 50 },
-                new PieSeries<double> { Values = new[] { 10.0 }, Name = "Entertainment" , InnerRadius = 50},
-                new PieSeries<double> { Values = new[] { 40.0 }, Name = "Savings", InnerRadius = 50},
-                new PieSeries<double> { Values = new[] { 40.0 }, Name = "Unexpected Expenses", InnerRadius = 50}
-
-
-            };
+            UpdateExpensesChart();
+            UpdateExpensesList();
         }
 
-        public IEnumerable<ISeries> PieSeries { get; set; }
+        public IList<ISeries> PieSeries { get; set; }
 
         //Events
         private void CloseClick(object sender, RoutedEventArgs e)
@@ -49,15 +41,53 @@ namespace SmartSpend
             this.Close();
         }
 
-        private void AddExpense(object sender,RoutedEventArgs e)
+        private void AddExpense(object sender, RoutedEventArgs e)
         {
             AddExpense addexp = new()
             {
                 Owner = this
             };
+
             addexp.ShowDialog();
         }
 
-        
+        public void UpdateExpensesList()
+        {
+            ExpensesList.Items.Clear();
+            List<Expense> expenses = DataManager.GetAllExpenses();
+
+            foreach (Expense expense in expenses)
+            {
+                ExpensesList.Items.Add(expense);
+            }
+        }
+
+        public void UpdateExpensesChart()
+        {
+            List<Expense> expenses = DataManager.GetAllExpenses();
+            Dictionary<Categories, double> sumedCategoriesExpenses = new Dictionary<Categories, double>();
+            foreach (Expense expense in expenses)
+            {
+                if (sumedCategoriesExpenses.ContainsKey(expense.Category))
+                {
+                    sumedCategoriesExpenses[expense.Category] += expense.Value;
+                }
+                else
+                {
+                    sumedCategoriesExpenses[expense.Category] = expense.Value;
+                }
+            }
+
+            IList<ISeries> ChartData = new List<ISeries>();
+
+            foreach (KeyValuePair<Categories, double> entry in sumedCategoriesExpenses)
+            {
+                PieSeries<double> data = new PieSeries<double> { Values = new[] { entry.Value }, Name = entry.Key.ToString(), InnerRadius = InnerRadius };
+                ChartData.Add(data);
+            }
+            PieSeries = ChartData;
+            ExpensesChart.Series = null;
+            ExpensesChart.Series = PieSeries;
+        }
     }
 }

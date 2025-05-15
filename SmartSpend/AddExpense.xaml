@@ -28,6 +28,10 @@
         <ComboBox   Name="SubcategoriesBox" Grid.Row="2"  Width="400" Height="70" 
                     SelectionChanged="SubcategoriesBox_SelectionChanged" ItemsSource="{Binding Subcategories}">
         </ComboBox>
-        
+        <TextBox Name="ExpensesValueTextBox" HorizontalAlignment="Center"  Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Center" Width="120"/>
+        <Button Name="AddExpenseButton" Grid.Row="4" Width="200" Height="100" Content="Add" Click="AddExpenseButton_Click"  />
+
+
+
     </Grid>
 </Window>

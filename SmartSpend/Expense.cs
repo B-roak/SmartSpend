@@ -20,5 +20,10 @@ namespace SmartSpend
             SubCategory = subcategory;
             Value = value;
         }
+
+        public override string ToString()
+        {
+            return $"Category: {Category} SubCategory: {SubCategory}  Value: {Value}";
+        }
     }
 }

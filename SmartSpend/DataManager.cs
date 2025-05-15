@@ -1,25 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SmartSpend
 {
-    internal class DataManager 
+    static class DataManager 
     {
-        public Expense GetExpenseById(int id) 
+        public static Expense GetExpenseById(int id) 
         {
             return new Expense(Categories.DailyLife,SubCategories.Rent,600);
         }
 
-        public void AddNewExpense(Expense expense)
+        public static void AddNewExpense(Expense expense)
         {
-            
+            Debug.WriteLine($"Added new expense {expense}");
         }
-        public List<Expense> GetAllExpenses()
+        public static List<Expense> GetAllExpenses()
         {
-            return new List<Expense>();
+            return new List<Expense>() 
+            {
+                new Expense(Categories.DailyLife,SubCategories.Books,600),
+                new Expense(Categories.DailyLife,SubCategories.Rent,5000)
+        };
         }
       
     }

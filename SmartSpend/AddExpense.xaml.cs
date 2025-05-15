@@ -56,5 +56,20 @@ namespace SmartSpend
                     SubcategoriesBox.Items.Add(category);
                 }
         }
+
+        private void AddExpenseButton_Click(object sender, RoutedEventArgs e)
+        {
+            string CategoryText = (string)CategoriesBox.SelectedItem;
+            string SubCategoryText = (string)SubcategoriesBox.SelectedItem;
+            string ValueText = ExpensesValueTextBox.Text;
+
+            Categories category = (Categories)Enum.Parse (typeof(Categories), CategoryText);
+            SubCategories subcategory = (SubCategories)Enum.Parse(typeof (SubCategories), SubCategoryText);
+            double value = double.Parse(ValueText);
+
+            Expense expense = new Expense(category, subcategory, value);
+            DataManager.AddNewExpense(expense);
+
+        }
     }
 }
