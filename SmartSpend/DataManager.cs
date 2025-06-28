@@ -4,20 +4,74 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.Sqlite;
+
+
 
 namespace SmartSpend
 {
-    static class DataManager 
+    internal static class DataManager
     {
-        private static List<Expense> ExpenseList = new List<Expense>();
-    
-        public static void AddNewExpense(Expense expense)
+        private const string ConnectionString = "Data Source=expenses.db";
+
+        static DataManager()
         {
-            ExpenseList.Add(expense);
+            using var connection = new SqliteConnection(ConnectionString);
+            connection.Open();
+
+            var tableCmd = connection.CreateCommand();
+            tableCmd.CommandText =
+            @"
+            CREATE TABLE IF NOT EXISTS Expenses (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                Category INTEGER NOT NULL,
+                SubCategory INTEGER NOT NULL,
+                Value REAL NOT NULL
+            );
+            ";
+            tableCmd.ExecuteNonQuery();
         }
-        public static List<Expense> GetAllExpenses()
+
+        internal static void AddNewExpense(Expense expense)
         {
-            return ExpenseList; 
+            using var connection = new SqliteConnection(ConnectionString);
+            connection.Open();
+
+            var insertCmd = connection.CreateCommand();
+            insertCmd.CommandText =
+            @"
+            INSERT INTO Expenses (Category, SubCategory, Value)
+            VALUES ($cat, $sub, $val);
+        ";
+            insertCmd.Parameters.AddWithValue("$cat", (int)expense.Category);
+            insertCmd.Parameters.AddWithValue("$sub", (int)expense.SubCategory);
+            insertCmd.Parameters.AddWithValue("$val", expense.Value);
+
+            insertCmd.ExecuteNonQuery();
+        }
+
+        internal static List<Expense> GetAllExpenses()
+        {
+            var expenses = new List<Expense>();
+
+            using var connection = new SqliteConnection(ConnectionString);
+            connection.Open();
+
+            var selectCmd = connection.CreateCommand();
+            selectCmd.CommandText = "SELECT Category, SubCategory, Value FROM Expenses";
+
+            using var reader = selectCmd.ExecuteReader();
+            while (reader.Read())
+            {
+                expenses.Add(new Expense
+                (
+                   (Categories)reader.GetInt32(0),
+                   (SubCategories)reader.GetInt32(1),
+                   reader.GetDouble(2)
+                ));
+            }
+
+            return expenses;
         }
     }
 }
