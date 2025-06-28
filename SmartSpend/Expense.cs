@@ -23,7 +23,7 @@ namespace SmartSpend
 
         public override string ToString()
         {
-            return $"Category: {Category} SubCategory: {SubCategory}  Value: {Value}";
+            return $"Category:          {Category}\nSubCategory:    {SubCategory}\nValue:                {Value} zł";
         }
     }
 }

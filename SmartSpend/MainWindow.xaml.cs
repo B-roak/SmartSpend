@@ -36,6 +36,11 @@ namespace SmartSpend
         public IList<ISeries> PieSeries { get; set; }
 
         //Events
+        private void Drag_Window(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
         private void CloseClick(object sender, RoutedEventArgs e)
         {
             this.Close();

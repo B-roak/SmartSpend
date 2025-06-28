@@ -6,7 +6,7 @@
         xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
         mc:Ignorable="d"
         Height="1000" Width="800" WindowStartupLocation="CenterScreen"
-        WindowStyle ="None"> 
+        WindowStyle ="None" MouseDown="Drag_Window" Background="AliceBlue"> 
 
 
     <Grid>
@@ -23,10 +23,19 @@
                 Foreground="Red" FontSize="25" FontWeight="Bold" />
         <lvc:PieChart Name="ExpensesChart" Grid.Row="1" Series="{Binding PieSeries}" LegendPosition="Right" />
         <Button Content="Add expenses" Grid.Row="2" Width="200" Height="60"
-                Background="LimeGreen" Click="AddExpense"/>
-        
-        <ListBox Name="ExpensesList" Grid.Row="3" ItemsSource="{Binding ListItems}">
-            
+                Background="Turquoise" Click="AddExpense" FontSize="22"/>
+
+
+
+        <ListBox Name="ExpensesList" Grid.Row="3" ItemsSource="{Binding ListItems}" FontSize="18" HorizontalContentAlignment="Stretch"
+                 BorderBrush="Transparent" Background="AliceBlue">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="2" Background="LightCyan"  BorderBrush="Black" CornerRadius="5" Padding="10" Margin="5">
+                        <TextBlock Text="{Binding}" />
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
         
     </Grid>

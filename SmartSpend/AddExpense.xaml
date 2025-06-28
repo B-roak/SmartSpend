@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:SmartSpend"
         mc:Ignorable="d"
         WindowStyle="None" WindowStartupLocation="CenterScreen"
-         Height="600" Width="600">
+         Height="600" Width="600" MouseDown="Drag_Window"
+        Background="AliceBlue">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -22,14 +23,18 @@
                 Foreground="Red" FontSize="25" FontWeight="Bold" />
        
         <ComboBox   Name="CategoriesBox" Grid.Row="1"  Width="400" Height="70" ItemsSource="{Binding Categories}" 
-                    SelectionChanged="CategoriesBox_SelectionChanged">
-
+                    SelectionChanged="CategoriesBox_SelectionChanged" FontSize="20"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+ 
         </ComboBox>
         <ComboBox   Name="SubcategoriesBox" Grid.Row="2"  Width="400" Height="70" 
-                    SelectionChanged="SubcategoriesBox_SelectionChanged" ItemsSource="{Binding Subcategories}">
+                    SelectionChanged="SubcategoriesBox_SelectionChanged" ItemsSource="{Binding Subcategories}"
+                    FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
         </ComboBox>
-        <TextBox Name="ExpensesValueTextBox" HorizontalAlignment="Center"  Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Center" Width="120"/>
-        <Button Name="AddExpenseButton" Grid.Row="4" Width="200" Height="100" Content="Add" Click="AddExpenseButton_Click"  />
+        <TextBox Name="ExpensesValueTextBox" PreviewTextInput="IsNum" HorizontalAlignment="Center"  Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Center" Width="400"
+                 Height="70" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button Name="AddExpenseButton" Grid.Row="4" Width="200" Height="100" Content="Add" Click="AddExpenseButton_Click"  FontSize="25"
+                Background="Turquoise" />
 
 
 

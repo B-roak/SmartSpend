@@ -32,7 +32,29 @@ namespace SmartSpend
             DataContext = this;
 
         }
+        //Events
+        private void IsNum(object sender, TextCompositionEventArgs e)
+        {
+            char inputChar = e.Text[0];
 
+            if (!Char.IsDigit(inputChar) && inputChar != ',')
+            {
+                e.Handled = true; // block input
+                return;
+            }
+
+            TextBox textBox = sender as TextBox;
+
+            if (inputChar == ',' && textBox.Text.Contains(","))
+            {
+                e.Handled = true;
+            }
+        }
+        private void Drag_Window(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
         private void CloseClick(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -59,6 +81,7 @@ namespace SmartSpend
 
         private void AddExpenseButton_Click(object sender, RoutedEventArgs e)
         {
+            
             string CategoryText = (string)CategoriesBox.SelectedItem;
             string SubCategoryText = (string)SubcategoriesBox.SelectedItem;
             string ValueText = ExpensesValueTextBox.Text;
@@ -71,6 +94,16 @@ namespace SmartSpend
             DataManager.AddNewExpense(expense);
             ((MainWindow)Application.Current.MainWindow).UpdateExpensesChart();
             ((MainWindow)Application.Current.MainWindow).UpdateExpensesList();
+
+           
+            
+            SubcategoriesBox.Items.Clear();
+            SubcategoriesBox.SelectedItem = null;
+            ExpensesValueTextBox.Clear();
+        }
+
+        private void ExpensesValueTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
 
         }
     }
