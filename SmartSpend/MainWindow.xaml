@@ -23,7 +23,7 @@
                 Foreground="Red" FontSize="25" FontWeight="Bold" />
         <lvc:PieChart Name="ExpensesChart" Grid.Row="1" Series="{Binding PieSeries}" LegendPosition="Right" />
         <Button Content="Add expenses" Grid.Row="2" Width="200" Height="60"
-                Background="GreenYellow" Click="AddExpense"/>
+                Background="LimeGreen" Click="AddExpense"/>
         
         <ListBox Name="ExpensesList" Grid.Row="3" ItemsSource="{Binding ListItems}">
             
