@@ -95,10 +95,9 @@ namespace SmartSpend
             ((MainWindow)Application.Current.MainWindow).UpdateExpensesChart();
             ((MainWindow)Application.Current.MainWindow).UpdateExpensesList();
 
-           
-            
-            SubcategoriesBox.Items.Clear();
-            SubcategoriesBox.SelectedItem = null;
+
+
+            SubcategoriesBox.SelectedIndex = -1;
             ExpensesValueTextBox.Clear();
         }
 

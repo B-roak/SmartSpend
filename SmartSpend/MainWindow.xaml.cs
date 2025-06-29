@@ -63,7 +63,7 @@ namespace SmartSpend
 
             foreach (Expense expense in expenses)
             {
-                ExpensesList.Items.Add(expense);
+                ExpensesList.Items.Insert(0,expense);
             }
         }
 
