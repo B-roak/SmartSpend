@@ -20,6 +20,7 @@ namespace SmartSpend
     /// </summary>
     public partial class AddExpense : Window
     {
+        public DataManager DataManager { get; set; }
         public string[] Categories {  get; set; }
         
         public string[] SubCategories { get; set; }
@@ -28,6 +29,7 @@ namespace SmartSpend
         {
             InitializeComponent();
 
+            DataManager = new DatabaseManager();
             Categories = Enum.GetNames(typeof(Categories));
             DataContext = this;
 
@@ -90,7 +92,7 @@ namespace SmartSpend
             SubCategories subcategory = (SubCategories)Enum.Parse(typeof (SubCategories), SubCategoryText);
             double value = double.Parse(ValueText);
 
-            Expense expense = new Expense(category, subcategory, value);
+            Expense expense = new Expense(category, subcategory, value, 0);
             DataManager.AddNewExpense(expense);
             ((MainWindow)Application.Current.MainWindow).UpdateExpensesChart();
             ((MainWindow)Application.Current.MainWindow).UpdateExpensesList();

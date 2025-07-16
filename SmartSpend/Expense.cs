@@ -6,19 +6,22 @@ using System.Threading.Tasks;
 
 namespace SmartSpend
 {
-    internal class Expense
+    public class Expense
     {
         public Categories Category { get; set; }
 
         public SubCategories SubCategory { get; set; }
 
         public double Value { get; set; }
+        
+        public int ID { get; set; }
 
-        public Expense(Categories category, SubCategories subcategory, double value)
+        public Expense(Categories category, SubCategories subcategory, double value, int id)
         {
             Category = category;
             SubCategory = subcategory;
             Value = value;
+            ID = id;
         }
 
         public override string ToString()

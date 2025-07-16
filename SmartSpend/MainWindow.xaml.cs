@@ -24,13 +24,17 @@ namespace SmartSpend
     public partial class MainWindow : Window
     {
         private const float InnerRadius = 50;
+        
+        public DataManager DataManager { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
+            DataManager = new DatabaseManager();
 
             UpdateExpensesChart();
             UpdateExpensesList();
+            
         }
 
         public IList<ISeries> PieSeries { get; set; }
@@ -93,6 +97,22 @@ namespace SmartSpend
             PieSeries = ChartData;
             ExpensesChart.Series = null;
             ExpensesChart.Series = PieSeries;
+        }
+
+        private void DeleteExpenseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Button clickedbutton = sender as Button;
+            if (clickedbutton != null)
+            {
+                Expense? selectedexpense = clickedbutton.DataContext as Expense;
+                if (selectedexpense != null)
+                {
+                    DataManager.DeleteExpense(selectedexpense);
+                    UpdateExpensesChart();
+                    UpdateExpensesList();
+                }
+
+            }
         }
     }
 }

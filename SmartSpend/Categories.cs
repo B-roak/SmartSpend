@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartSpend
 {
-    enum Categories
+    public enum Categories
     {
         Utilities,
         DailyLife, 
@@ -16,7 +16,7 @@ namespace SmartSpend
         Miscellaneous
     }
 
-    enum SubCategories 
+    public enum SubCategories 
     {
         //Utilities
         Electricity,
