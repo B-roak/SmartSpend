@@ -29,3 +29,18 @@ On the main menu, click the "Add expenses" button.
 - C#
 - WPF (.NET 8.0)
 - XAML
+
+## Project Structure
+
+```text
+SmartSpend-main/
+├── SmartSpend.sln
+├── SmartSpend/
+│   ├── App.xaml
+│   ├── App.xaml.cs
+│   ├── MainWindow.xaml
+│   ├── MainWindow.xaml.cs
+│   ├── SmartSpend.csproj
+│   └── ...
+└── README.md
+```
