@@ -19,9 +19,9 @@ You need to download this repository, and have already installed newest version 
 # Usage
 On the main menu, click the "Add expenses" button. 
 ![alt text](https://github.com/B-roak/SmartSpend/blob/main/Screens/menu.png "Main menu of SmartSpend application")
-This will show you a new window, where you can choose your expense category, type and input the cost.
+<br>This will show you a new window, where you can choose your expense category, type and input the cost.
 ![alt text](https://github.com/B-roak/SmartSpend/blob/main/Screens/addexpense.png "Add expenses menu of SmartSpend application")
-After adding, the pie chart on the main menu will show your added expenses, color coded to differentiate each category. Then, you can either add new expenses, or delete existing ones.
+<br>After adding, the pie chart on the main menu will show your added expenses, color coded to differentiate each category. Then, you can either add new expenses, or delete existing ones.
 ![alt text](https://github.com/B-roak/SmartSpend/blob/main/Screens/list.png "Drop down list in SmartSpend application")
 
 
