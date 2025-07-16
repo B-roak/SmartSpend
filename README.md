@@ -15,6 +15,10 @@ You need to download this repository, and have already installed newest version 
 - Categorize expenses
 - Data visualization (charts, tables)
 - Export data
+- Nuggets (LiveCharts, SQL lite)
+
+# Database 
+This project uses SQL Lite database becouse amount of data doesnt reqire bigger and more complex database. However it could be changed at any moment in DataManager class enabling you to have your own way of saving data.
   
 # Usage
 On the main menu, click the "Add expenses" button. 
