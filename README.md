@@ -29,6 +29,7 @@ On the main menu, click the "Add expenses" button.
 - C#
 - WPF (.NET 8.0)
 - XAML
+- NuGet (pie chart, SQLlite)
 
 ## Project Structure
 
