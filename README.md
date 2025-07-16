@@ -35,7 +35,7 @@ On the main menu, click the "Add expenses" button.
 - XAML
 - NuGet (pie chart, SQLlite)
 
-## Project Structure
+# Project Structure
 
 ```text
 SmartSpend-main/
