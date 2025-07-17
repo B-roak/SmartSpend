@@ -49,3 +49,10 @@ SmartSpend-main/
 │   └── ...
 └── README.md
 ```
+# Future plans
+- Implement edit expense feature
+- Develop a mobile app
+- Add custom expense types and categories
+- Implement more currencies
+- Add reminders and notifications
+- Implement a backup function
